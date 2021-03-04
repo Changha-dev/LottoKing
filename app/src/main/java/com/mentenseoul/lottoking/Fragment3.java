@@ -39,11 +39,34 @@ public class Fragment3 extends Fragment {
         webView.setBackgroundColor(Color.parseColor("#feffdf"));
         webSettings.setJavaScriptEnabled(true);
 
-
-
-        webView.loadUrl("https://dhlottery.co.kr/common.do?method=main");
+        webView.loadUrl(" https://dhlottery.co.kr/common.do?method=main");
 
         return rootView;
     }
 
+        @Override
+        public void onPause() {
+            super.onPause();
+            try {
+                Class.forName("android.webkit.WebView")
+                        .getMethod("onPause", (Class[]) null)
+                        .invoke(webView, (Object[]) null);
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        try {
+            Class.forName("android.webkit.WebView")
+                    .getMethod("onResume", (Class[]) null)
+                    .invoke(webView, (Object[]) null);
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

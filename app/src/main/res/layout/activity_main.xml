@@ -22,7 +22,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:layout_above="@+id/adView"
                 android:layout_alignParentTop="true"
                 android:background="#feffdf">
@@ -47,7 +47,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 app:adSize="BANNER"
-                app:adUnitId="ca-app-pub-3940256099942544/6300978111" />
+                app:adUnitId="ca-app-pub-9725078965412256/1353942483" />
 
         </RelativeLayout>
 

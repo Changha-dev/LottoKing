@@ -10,8 +10,8 @@ android {
         applicationId "com.mentenseoul.lottoking"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 5
+        versionName "2.3"
         // error => Cannot fit requested classes in a single dex file (# methods: 67851 > 65536)
         multiDexEnabled true
 
@@ -33,7 +33,7 @@ android {
 
 dependencies {
     // qr code
-    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
+//    implementation 'com.journeyapps:zxing-android-embedded:3.6.0'
     implementation 'com.google.android.gms:play-services-ads:19.7.0'
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'androidx.appcompat:appcompat:1.2.0'

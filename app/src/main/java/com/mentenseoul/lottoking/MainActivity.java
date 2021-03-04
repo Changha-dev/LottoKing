@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.constraintlayout.widget.ConstraintSet;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -19,8 +21,7 @@ import com.google.android.gms.ads.initialization.InitializationStatus;
 import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton fab3;
     private AdView adView;
+    ConstraintLayout container;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
         fab3 = findViewById(R.id.fab3);
         AdRequest adRequest = new AdRequest.Builder().build();
         adView.loadAd(adRequest);
+        container = findViewById(R.id.container);
+
 
         fragment1 = new Fragment1();
         fragment2 = new Fragment2();
@@ -67,18 +71,22 @@ public class MainActivity extends AppCompatActivity {
                         switch (item.getItemId()){
                             case R.id.tab1:
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment1).commit();
+                                adView.setVisibility(adView.VISIBLE);
                                 fab3.hide();
                                 return true;
                             case R.id.tab2:
                                 getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment2).commit();
+                                adView.setVisibility(adView.VISIBLE);
                                 fab3.hide();
                                 return true;
                             case R.id.tab3:
                                     getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment3).commit();
+                                    adView.setVisibility(adView.GONE);
                                 fab3.hide();
                                 return true;
                             case R.id.roulette:
                                     getSupportFragmentManager().beginTransaction().replace(R.id.container, roulette).commit();
+                                adView.setVisibility(adView.VISIBLE);
                                     return true;
                         }
                         return false;
